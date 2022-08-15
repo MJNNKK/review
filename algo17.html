@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer;
+                answer = s.filter(function(v, i) {  // s.필터(펑션(벨류, 인덱스){ });
+                    return s.indexOf(v) === i;      // 리턴 s.indexOf(벨류)와 === i(인덱스)가 같은 것만 리턴
+                });                                 // indexOf는 중복되는 단어의 인덱스를 처음것과 통일시킨다
+                                                    // ex) "good", "time", "good", "time", "student"
+                                                    //       0        1       0      1        4
+                                        //기존 인덱스값       0        1       2      3        4
+                return answer;
+            }
+            let str=["good", "time", "good", "time", "student"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
