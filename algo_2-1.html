@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){         
+                let answer=[];   // 배열로 출력해야 하니 answer 을 배열로 바꿔준다.
+                answer.push(arr[0]);    // 배열중 첫번째 수는 무조건 입력되니 arr[0] 을 푸쉬로 넣어준다.
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] > arr[i - 1]) { //arr[i] 가 arr[i - 1](앞의 숫자) 보다 클 때
+                        answer.push(arr[i]);   // arr[i]를 answer에 푸쉬해준다.
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[7, 3, 9, 5, 6, 12];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
