@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                let n=arr.length;
+                let answer = Array.from({length:n}, () => 1); 
+                // Array.from({length:n}, () => 1); = 명령어를 통해 answer 배열을 1로 초기화
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j < n; j++) { // 2중 for문
+                        if (arr[j] > arr[i]) {   // arr[j] 가 arr[i] 보다 클 때
+                            answer[i]++;  // 조건에 부합 할 때 answer[i](각 배열)에 1씩 카운팅 
+                        }
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[87, 89, 92, 100, 76];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
