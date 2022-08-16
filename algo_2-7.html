@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                let answer=0;
+                let n = arr.length;
+                let dx = [-1, 0, 1, 0];  
+                let dy = [0, 1, 0, -1];
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j < n; j++) {
+                        let flag = 1;  // 밑의 k for문을 다 돌고 조건에 부합하면 flag = 1
+                        for (let k = 0; k < 4; k++) {
+                            let nx = i + dx[k]; //n의 x축 = i + dx[k](=-1, 0, 1, 0)
+                            let ny = j + dy[k]; //n의 y축 = j + dx[k](=0, 1, 0, -1)
+                            if (nx>=0 && nx<n && ny>=0 && ny<n && arr[nx][ny]>=arr[i][j]) {
+                                //nx >= 0 ~ n -1, ny >= 0 ~ n -1 해주지 않으면 에어리어 벗어났다고 에러.
+                                // arr[nx][ny](arr[i][j]의 12,3,6,9시 방향의 숫자)보다 arr[i][j]가 작거나 같으면
+                                //flag(봉우리) = 0
+                                flag = 0;
+                                break;
+                            }
+                        }
+                        if(flag) { // 위 for문을 다 돌고 flag가  + 1인경우 answer을 카운팅
+                            answer++;
+                        }
+                    }
+                }
+
+                return answer;
+            }
+
+            let arr=[[5, 3, 7, 2, 3], 
+                     [3, 7, 1, 6, 1],
+                     [7, 2, 5, 3, 4],
+                     [4, 3, 6, 4, 1],
+                     [8, 7, 3, 5, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
