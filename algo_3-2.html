@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="YES";
+                s = s.toLowerCase().replace(/[^a-z]/g,''); // LorweCase로 소문자화 시킨 후 replace(정규변환식)
+                //으로 소문자로 바꿔준다. 
+                if (s.split('').reverse().join('') !== s) { 
+                    //split 문자열을 각 문자별 배열로 쪼갠다
+                    //reverse 배열로 쪼갠 문자를 뒤집는다
+                    //join 배열로 쪼개진 문자열을 다시 하나로 합친다.
+                    // 위과정을 거친 뒤 s와 같지 않다면 리턴 "NO"
+                    return "NO"
+                }
+                return answer;
+            }
+            
+            let str="found7, time: study; Yduts; emit, 7Dnuof";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
