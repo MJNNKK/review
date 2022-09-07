@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let answer="";
+                let cnt = 1;
+                s = s + " "; // 띄어쓰기를 넣어주기 위해 " " 띄어쓰기를 넣어준다.
+                for (let i = 0; i < s.length - 1; i++) {
+                    if (s[i] === s[i + 1]) { // s[i] 와 s[i + 1] s[i] 의 바로 뒷자리가 같으면
+                        cnt++;  //cnt 에 +1을 누적
+                    } else {
+                        answer += s[i]; // 위가 참이 아니면 answer 에 s[i] 를 누적
+                        if (cnt > 1) { // cnt가 1보다 크면
+                            answer += String(cnt)  // answer에 문자화한cnt를 누적
+                                cnt = 1; //cnt는 1로 초기화
+                        }
+                    }
+                }
+                return answer;
+            }
+            
+            let str="KKHSSSSSSSE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
