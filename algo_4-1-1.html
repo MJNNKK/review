@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr){
+                let answer, max=Number.MIN_SAFE_INTEGER;
+                for (let x of arr) {
+                    let sum = 0, tmp = x;
+                    while (tmp) {
+                        sum += (tmp%10); // tmp = x / 10의 나머지 sum에 누적
+                        tmp = Math.floor(tmp / 10); // 위 과정을 거치고 난 후 tmp = tmp / 10 후 나머지를 버린다.
+                    }
+                    if (sum > max) { // sum 이 max보다 크면 max는 sum answer = x
+                        max = sum;
+                        answer = x; 
+                    } else if (sum === max) { //sum과 max가 같을 때 x 보다 answer가 크면 answer = x
+                        if (x > answer){
+                            answer = x;
+                        }
+                    }
+                }
+                return answer;
+            }
+            
+            let arr=[128, 460, 603, 40, 521, 137, 123];
+            console.log(solution(7, arr));
+        </script>
+    </body>
+</html>
