@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function isPrime(num) {
+                if (num === 1) {   // num === 1일 때 리턴 false
+                    return false;
+                }
+                for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) { // i = 2 
+                    if (num % i === 0) { // num 을 i(2) 로 나눈 나머지 === 0 일 때 리턴 false
+                        return false;    
+                    }
+                }
+                return true; // 그외에 리턴 true
+            }
+            function solution(arr) {
+                let answer = [];
+                for (let x of arr) {
+                    let res = 0;
+                    while (x) {
+                        let t = x % 10; // x % 10 ex)123 3 반복 후 2 반복 후 1
+                        res = res * 10 + t; // res * 10 + t = 초기값은 0 그 이후 t가 + 되기 때문에 
+                        //ex) 123 이라면 res = 3
+                        x = parseInt(x/10); // x = x / 10 (123 / 10 = 12)
+                        //위를 반복
+                        //ex) res = 3 일때 x = 12   t = x % 10 = 2     res * 10 = 30 + t = 32
+                        //res = 32  x = 1   t = x % 10 = 1      res * 10 = 320 + t = 321
+                        //위의 반복문으로 123을 321로 뒤집는다.
+                    }
+                }
+                if (isPrime(res)) {  // 뒤집고 난 후 펑션 isPrime 을 거쳐 소수라면
+                    answer.push(res); // answer에 res를 push 해준다.
+                }
+                return answer;
+            }
+            
+            let arr=[32, 55, 62, 20, 250, 370, 200, 30, 100];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
