@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr1, arr2){
+                let answer=[];
+                let n = arr1.length; //n에 arr1 의 문자 길이를 넣어준다.
+                let m = arr2.length; //m에 arr2 의 문자 길이를 넣어준다. 
+                let p1 = p2 = 0; // p1, p2 = 0
+                while(p1 < n && p2 < m) { //p1 보다 n이 크거나 p2보다 m이 크면 거짓으로 브레이크
+                    if (arr1[p1] <= arr2[p2]) { // arr1의[p1] n번째 숫자가 arr2의 n번째 숫자와 같거나 arr2가 클 때 
+                        answer.push(arr1[p1++]); //answer에 arr1의 n번째 숫자를 push해주고 p1을 1증가시킨다.
+                    } else {
+                        answer.push(arr2[p2++]); //위가 거짓일 때 arr2를 push하고 p2를 1증가시킨다.
+                    }
+                }
+                while (p1 < n) { //p1 이 n 보다 작을 때 
+                    answer.push(arr1[p1++]); //answer에 arr1의 n번째 숫자를 push하고 p1을 1증가시킨다.
+                }
+                while (p2 < m) { //p2가 m보다 작을 때
+                    answer.push(arr2[p2++]); //answer에 arr2의 n번째 숫자를 push하고 p1을 1증가시킨다.
+                return answer;
+            }
+            
+            let a=[1, 3, 5];
+            let b=[2, 3, 6, 7, 9];
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
